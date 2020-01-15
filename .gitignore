@@ -1,2 +1,5 @@
 data/
 .ipynb_checkpoints/
+anime_32x32/
+cyclegan_training_results/
+gan_training_results/
