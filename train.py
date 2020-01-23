@@ -201,8 +201,6 @@ def summarize_performance(epoch, step, g_model, trainX, name, n_samples=5):
     X_in = (X_in + 1.) / 2.0
     X_out = (X_out + 1.) / 2.0
 
-    print(X_in.min(), X_in.max(), X_out.min(), X_out.max())
-
     # plot real images
     pyplot.figure(figsize=(20, 15))
     for i in range(n_samples):
@@ -291,7 +289,7 @@ def train(d_model_A, d_model_B, g_model_AtoB, g_model_BtoA, c_model_AtoB, c_mode
             dB_loss1 = d_model_B.train_on_batch(X_realB, y_realB)
             dB_loss2 = d_model_B.train_on_batch(X_fakeB, y_fakeB)
             # summarize performance
-            if (i + 1) % 25 == 0:
+            if (i + 1) % 10 == 0:
                 print('> %d.%d, dA[%.3f,%.3f] dB[%.3f,%.3f] g[%.3f,%.3f]' % (
                     epoch, (i + 1) , dA_loss1, dA_loss2, dB_loss1, dB_loss2, g_loss1, g_loss2))
             # evaluate the model performance every so often
